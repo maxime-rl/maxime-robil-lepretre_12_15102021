@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { styleColor } from "./variables"
 
 /**
  * Global styles for all the Application
@@ -16,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 1.6rem;
-    line-height: 1.6rem;
+    color: ${styleColor.colorTertiary};
   }
 
   ul {
