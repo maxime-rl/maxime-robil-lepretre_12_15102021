@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { styleColor } from "./variables"
+import { styleColor } from "./variables";
 
 /**
  * Global styles for all the Application
@@ -32,10 +32,6 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: inherit;
     color: inherit;
-  }
-
-  .active-link {
-    text-decoration: underline;
   }
 
   .sr-only {
