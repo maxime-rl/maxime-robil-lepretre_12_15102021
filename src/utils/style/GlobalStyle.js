@@ -20,6 +20,12 @@ const GlobalStyle = createGlobalStyle`
     color: ${styleColor.colorTertiary};
   }
 
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
   ul {
     margin: 0;
     padding: 0;
