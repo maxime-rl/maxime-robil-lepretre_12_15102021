@@ -24,7 +24,7 @@ export const BannerContent = styled.div`
   margin: 0 auto;
   @media only screen and (min-width: 920px) {
     position: absolute;
-    top: 50px;
+    top: 40px;
     right: 50px;
     width: 300px;
     margin: 50px;
