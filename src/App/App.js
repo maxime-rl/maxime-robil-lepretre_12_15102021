@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HomePage, LoginPage, UserProfilePage, ErrorPage } from "../pages";
 import { NavBar, Footer } from "../components";
 
+/**
+ * App component with router config
+ * @function App
+ */
 function App() {
   return (
     <Router>

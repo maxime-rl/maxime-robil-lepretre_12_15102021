@@ -2,7 +2,12 @@ import React from "react";
 import * as S from "./NavBar.styled";
 import logo from "../../assets/images/argentBankLogo.png";
 
+/**
+ * Create a NavBar component
+ * @function NavBar
+ */
 export default function NavBar() {
+  // WIP => test while waiting for data state
   const isLogged = false;
   const userName = "Tony";
 
