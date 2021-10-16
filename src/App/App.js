@@ -7,20 +7,20 @@ function App() {
   return (
     <Router>
       <NavBar />
-        <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route path="/login">
-            <LoginPage />
-          </Route>
-          <Route path="/user-profile">
-            <UserProfilePage />
-          </Route>
-          <Route path="*">
-            <ErrorPage />
-          </Route>
-        </Switch>
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        <Route path="/profile">
+          <UserProfilePage />
+        </Route>
+        <Route path="*">
+          <ErrorPage />
+        </Route>
+      </Switch>
       <Footer />
     </Router>
   );
