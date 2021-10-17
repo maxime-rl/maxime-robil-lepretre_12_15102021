@@ -26,11 +26,11 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit}>
           <S.InputContainer>
             <label htmlFor="username">Username</label>
-            <input id="username" name="username" type="text" />
+            <input id="username" name="username" type="text" required />
           </S.InputContainer>
           <S.InputContainer>
             <label htmlFor="password">Password</label>
-            <input id="password" name="password" type="text" />
+            <input id="password" name="password" type="text" required />
           </S.InputContainer>
           <S.CheckboxContainer>
             <input id="remember-me" name="remember-me" type="checkbox" />
