@@ -60,6 +60,7 @@ export const BtnSubmit = styled.button`
   padding: 9.2px;
   width: 100%;
   font-size: 1.6rem;
+  font-weight: 700;
   color: ${styleColor.colorWhite};
   border: 0;
   background-color: ${styleColor.colorPrimary};

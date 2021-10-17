@@ -18,14 +18,45 @@ export const H1 = styled.h1`
   align-items: center;
 `;
 
-export const Main = styled.main`
+export const InputsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1;
-  min-height: calc(100vh - 307px);
-  background: ${styleColor.colorSecondary};
+  flex-wrap: wrap;
+  @media (min-width: 576px) {
+    flex-direction: row;
+  }
+
+  input {
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+`;
+
+export const BtnContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    width: 77px;
+
+    &:first-child {
+      margin-right: 7px;
+      @media (min-width: 576px) {
+        margin-right: 10px;
+      }
+    }
+
+    &:last-child {
+      margin-left: 7px;
+      @media (min-width: 576px) {
+        margin-left: 10px;
+      }
+    }
+  }
 `;
 
 export const Btn = styled.button`
@@ -41,4 +72,14 @@ export const Btn = styled.button`
   &:hover {
     background-color: ${styleColor.colorPrimaryDarken};
   }
+`;
+
+export const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-height: calc(100vh - 307px);
+  background: ${styleColor.colorSecondary};
 `;
