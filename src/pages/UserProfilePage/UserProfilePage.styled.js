@@ -27,3 +27,18 @@ export const Main = styled.main`
   min-height: calc(100vh - 307px);
   background: ${styleColor.colorSecondary};
 `;
+
+export const Btn = styled.button`
+  margin-top: 10px;
+  padding: 9.2px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: ${styleColor.colorWhite};
+  border: 0;
+  background-color: ${styleColor.colorPrimary};
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${styleColor.colorPrimaryDarken};
+  }
+`;

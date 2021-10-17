@@ -23,7 +23,7 @@ export default function UserProfilePage() {
             {user.userName} {user.lastName}
           </span>
         </S.H1>
-        <button>Edit Name</button>
+        <S.Btn>Edit Name</S.Btn>
       </S.Header>
       <S.Main>
         <h2 className="sr-only">Account</h2>

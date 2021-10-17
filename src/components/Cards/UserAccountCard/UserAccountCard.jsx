@@ -17,7 +17,7 @@ export default function UserAccountCard({ title, amount, description }) {
         <S.AccountAmount>{amount}</S.AccountAmount>
         <S.AccountDescription>{description}</S.AccountDescription>
       </S.AccountContainer>
-      <button>View transactions</button>
+      <S.Btn>View transactions</S.Btn>
     </S.Section>
   );
 }

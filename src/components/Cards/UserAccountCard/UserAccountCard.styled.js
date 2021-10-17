@@ -35,3 +35,22 @@ export const AccountAmount = styled.p`
 export const AccountDescription = styled.p`
   margin: 0;
 `;
+
+export const Btn = styled.button`
+  margin-top: 10px;
+  padding: 9.2px;
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: ${styleColor.colorWhite};
+  border: 0;
+  background-color: ${styleColor.colorPrimary};
+  cursor: pointer;
+  @media (min-width: 720px) {
+    width: auto;
+  }
+
+  &:hover {
+    background-color: ${styleColor.colorPrimaryDarken};
+  }
+`;
