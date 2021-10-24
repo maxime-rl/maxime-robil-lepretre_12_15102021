@@ -1,10 +1,4 @@
-import {
-  LOGIN_SUCCESS,
-  LOGIN_FAIL,
-  LOGOUT,
-  SET_MESSAGE,
-  CLEAR_MESSAGE,
-} from "./types";
+import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT, SET_MESSAGE } from "./types";
 import AuthService from "../../services/auth.service";
 
 export const login = (email, password) => (dispatch) => {
@@ -46,12 +40,3 @@ export const logout = () => (dispatch) => {
     type: LOGOUT,
   });
 };
-
-export const setMessage = (message) => ({
-  type: SET_MESSAGE,
-  payload: message,
-});
-
-export const clearMessage = () => ({
-  type: CLEAR_MESSAGE,
-});
