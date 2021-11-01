@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { userAuth } from "../../store/middlewares/userAuth";
 import * as S from "./LoginPage.styled";
 
 /**
@@ -6,17 +9,29 @@ import * as S from "./LoginPage.styled";
  * @function LoginPage
  */
 export default function LoginPage() {
-  // WIP => test while waiting for data state
+  const user = (state) => state.authReducer;
+  const currentUser = useSelector(user);
+  const dispatch = useDispatch();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    document.title = "Sign In";
+  }, []);
+
+  const handleInputChange = (e) => {
+    e.target.name === "email"
+      ? setEmail(e.target.value)
+      : setPassword(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      username: e.target.username.value,
-      password: e.target.password.value,
-    };
-    const json = JSON.stringify(data, null, 4);
-    console.clear();
-    console.log(json);
+    dispatch(userAuth(email, password));
   };
+
+  if (currentUser.isLogged) return <Redirect to="/profile" />;
 
   return (
     <S.Main>
@@ -25,16 +40,28 @@ export default function LoginPage() {
         <S.H1>Sign In</S.H1>
         <form onSubmit={handleSubmit}>
           <S.InputContainer>
-            <label htmlFor="username">Username</label>
-            <input id="username" name="username" type="text" required />
+            <label htmlFor="userEmail">Useremail</label>
+            <input
+              id="userEmail"
+              name="email"
+              type="text"
+              onChange={handleInputChange}
+              required
+            />
           </S.InputContainer>
           <S.InputContainer>
-            <label htmlFor="password">Password</label>
-            <input id="password" name="password" type="text" required />
+            <label htmlFor="userPassword">Password</label>
+            <input
+              id="userPassword"
+              name="password"
+              type="password"
+              onChange={handleInputChange}
+              required
+            />
           </S.InputContainer>
           <S.CheckboxContainer>
-            <input id="remember-me" name="remember-me" type="checkbox" />
-            <label htmlFor="remember-me">Remember me</label>
+            <input id="rememberMe" name="remember" type="checkbox" />
+            <label htmlFor="rememberMe">Remember me</label>
           </S.CheckboxContainer>
           <S.BtnSubmit type="submit">Sign In</S.BtnSubmit>
         </form>
