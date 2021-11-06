@@ -9,7 +9,7 @@ import * as S from "./LoginPage.styled";
  * @function LoginPage
  */
 export default function LoginPage() {
-  const user = (state) => state.authReducer;
+  const user = (state) => state.userReducer;
   const currentUser = useSelector(user);
   const dispatch = useDispatch();
 

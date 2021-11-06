@@ -3,6 +3,8 @@ import {
   LOGIN_PENDING,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
+  GET_USER_SUCCESS,
+  GET_USER_ERROR,
   LOGOUT,
 } from "../actions/types";
 
@@ -12,7 +14,7 @@ import {
  * @param {object} action
  * @returns {array}
  */
-export default function authReducer(state = initialState, action) {
+export default function userReducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -32,6 +34,17 @@ export default function authReducer(state = initialState, action) {
         token: payload.token,
       };
     case LOGIN_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      };
+    case GET_USER_SUCCESS:
+      return {
+        ...state,
+        firstName: payload.firstName,
+        lastName: payload.lastName,
+      };
+    case GET_USER_ERROR:
       return {
         ...state,
         error: action.error,

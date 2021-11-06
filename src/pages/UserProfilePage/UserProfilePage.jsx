@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Redirect } from "react-router";
+import { getUserInfos } from "../../store/middlewares/userInfos";
 import { UserAccountCard } from "../../components";
 import * as S from "./UserProfilePage.styled";
 
@@ -8,25 +11,21 @@ import * as S from "./UserProfilePage.styled";
  * @function UserProfilePage
  */
 export default function UserProfilePage() {
+  const user = (state) => state.userReducer;
+  const currentUser = useSelector(user);
+  const dispatch = useDispatch();
+
   const [editName, setEditName] = useState(false);
 
-  // WIP => test while waiting for data state
-  const user = {
-    firstName: "Tony",
-    lastName: "Jarvis",
-  };
+  useEffect(() => {
+    dispatch(getUserInfos(currentUser.token));
+  }, [dispatch, currentUser.token]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const data = {
-      firstname: e.target.firstname.value,
-      lastname: e.target.lastname.value,
-    };
-    const json = JSON.stringify(data, null, 4);
-    console.clear();
-    console.log(json);
-    setEditName(false);
-  };
+  useEffect(() => {
+    document.title = "Profile";
+  }, []);
+
+  if (!currentUser.isLogged) return <Redirect to="/" />;
 
   return (
     <>
@@ -35,27 +34,27 @@ export default function UserProfilePage() {
           <span>Welcome back</span>
           {!editName ? (
             <span>
-              {user.firstName} {user.lastName}
+              {currentUser.firstName} {currentUser.lastName}
             </span>
           ) : null}
         </S.H1>
         {!editName ? (
           <S.Btn onClick={() => setEditName(true)}>Edit Name</S.Btn>
         ) : (
-          <form onSubmit={handleSubmit}>
+          <form>
             <S.InputsContainer>
               <label htmlFor="firstname"></label>
               <input
                 id="firstname"
                 name="firstname"
-                placeholder={user.firstName}
+                placeholder={currentUser.firstName}
                 type="text"
               />
               <label htmlFor="lastname"></label>
               <input
                 id="lastname"
                 name="lastname"
-                placeholder={user.lastName}
+                placeholder={currentUser.lastName}
                 type="text"
               />
             </S.InputsContainer>
