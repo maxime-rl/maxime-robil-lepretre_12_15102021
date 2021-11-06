@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router";
-import { getUserInfos } from "../../store/middlewares/userInfos";
+import { getUserInfo, editUserInfo } from "../../store/middlewares/userInfo";
 import { UserAccountCard } from "../../components";
 import * as S from "./UserProfilePage.styled";
 
@@ -16,14 +16,32 @@ export default function UserProfilePage() {
   const dispatch = useDispatch();
 
   const [editName, setEditName] = useState(false);
+  const [editFirstName, setEditFirstName] = useState("");
+  const [editLastName, setEditLastName] = useState("");
 
   useEffect(() => {
-    dispatch(getUserInfos(currentUser.token));
+    dispatch(getUserInfo(currentUser.token));
   }, [dispatch, currentUser.token]);
 
   useEffect(() => {
     document.title = "Profile";
   }, []);
+
+  const handleInputChange = (e) => {
+    e.target.name === "firstname"
+      ? setEditFirstName(e.target.value)
+      : setEditLastName(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (editFirstName && editLastName !== "") {
+      dispatch(editUserInfo(editFirstName, editLastName, currentUser.token));
+      setEditFirstName("");
+      setEditLastName("");
+      setEditName(false);
+    }
+  };
 
   if (!currentUser.isLogged) return <Redirect to="/" />;
 
@@ -41,21 +59,25 @@ export default function UserProfilePage() {
         {!editName ? (
           <S.Btn onClick={() => setEditName(true)}>Edit Name</S.Btn>
         ) : (
-          <form>
+          <form onSubmit={handleSubmit}>
             <S.InputsContainer>
               <label htmlFor="firstname"></label>
               <input
                 id="firstname"
                 name="firstname"
                 placeholder={currentUser.firstName}
+                value={editFirstName}
                 type="text"
+                onChange={handleInputChange}
               />
               <label htmlFor="lastname"></label>
               <input
                 id="lastname"
                 name="lastname"
                 placeholder={currentUser.lastName}
+                value={editLastName}
                 type="text"
+                onChange={handleInputChange}
               />
             </S.InputsContainer>
             <S.BtnContainer>

@@ -3,13 +3,13 @@ import {
   LOGIN_PENDING,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
-  GET_USER_SUCCESS,
-  GET_USER_ERROR,
+  HANDLE_USER_INFO_SUCCESS,
+  HANDLE_USER_INFO_ERROR,
   LOGOUT,
 } from "../actions/types";
 
 /**
- * Authentification reducer
+ * User reducer
  * @param {object} state
  * @param {object} action
  * @returns {array}
@@ -38,13 +38,13 @@ export default function userReducer(state = initialState, action) {
         ...state,
         error: action.error,
       };
-    case GET_USER_SUCCESS:
+    case HANDLE_USER_INFO_SUCCESS:
       return {
         ...state,
         firstName: payload.firstName,
         lastName: payload.lastName,
       };
-    case GET_USER_ERROR:
+    case HANDLE_USER_INFO_ERROR:
       return {
         ...state,
         error: action.error,
