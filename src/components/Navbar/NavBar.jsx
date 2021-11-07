@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../store/actions/authActions";
 import * as S from "./NavBar.styled";
 import logo from "../../assets/images/argentBankLogo.png";
 
@@ -7,25 +9,25 @@ import logo from "../../assets/images/argentBankLogo.png";
  * @function NavBar
  */
 export default function NavBar() {
-  // WIP => test while waiting for data state
-  const isLogged = false;
-  const userName = "Tony";
+  const user = (state) => state.userReducer;
+  const currentUser = useSelector(user);
+  const dispatch = useDispatch();
 
   return (
     <S.Nav>
       <S.A to="/">
         <S.Img src={logo} alt="logo Argent Bank" />
       </S.A>
-      {isLogged ? (
+      {currentUser.isLogged ? (
         <S.Ul>
           <S.Li>
             <S.A to="/profile">
               <S.I className="fa fa-user-circle"></S.I>
-              {userName}
+              {currentUser.firstName}
             </S.A>
           </S.Li>
           <S.Li>
-            <S.A to="/">
+            <S.A to="/" onClick={() => dispatch(logout())}>
               <S.I className="fa fa-sign-out"></S.I>
               Sign Out
             </S.A>
