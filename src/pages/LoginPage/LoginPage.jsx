@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { userAuth } from "../../store/middlewares/userAuth";
+import { userAuth } from "../../store/middlewares/userAuthMiddleware";
 import * as S from "./LoginPage.styled";
 
 /**

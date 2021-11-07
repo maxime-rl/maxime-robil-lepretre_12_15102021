@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router";
-import { getUserInfo, editUserInfo } from "../../store/middlewares/userInfo";
+import {
+  getUserInfo,
+  editUserInfo,
+} from "../../store/middlewares/userInfoMiddleware";
 import { UserAccountCard } from "../../components";
 import * as S from "./UserProfilePage.styled";
 

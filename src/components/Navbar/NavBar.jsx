@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../store/actions/authActions";
+import { logout } from "../../store/actions/userAuthActions";
 import * as S from "./NavBar.styled";
 import logo from "../../assets/images/argentBankLogo.png";
 
