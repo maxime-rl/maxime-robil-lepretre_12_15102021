@@ -1,6 +1,10 @@
 import { axiosInstance } from "../../utils/api/axiosInstance";
 import { endPoint } from "../../utils/api/apiEndPointList";
-import { loginPending, loginSuccess, loginError } from "../actions/authActions";
+import {
+  loginPending,
+  loginSuccess,
+  loginError,
+} from "../actions/userAuthActions";
 
 /**
  * User authentification management

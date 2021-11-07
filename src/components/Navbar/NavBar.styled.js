@@ -17,6 +17,10 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
   margin-right: 5px;
+
+  &:last-child {
+    margin-left: 10px;
+  }
 `;
 
 export const A = styled(Link)`

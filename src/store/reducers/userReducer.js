@@ -3,16 +3,18 @@ import {
   LOGIN_PENDING,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
+  HANDLE_USER_INFO_SUCCESS,
+  HANDLE_USER_INFO_ERROR,
   LOGOUT,
 } from "../actions/types";
 
 /**
- * Authentification reducer
+ * User reducer
  * @param {object} state
  * @param {object} action
  * @returns {array}
  */
-export default function authReducer(state = initialState, action) {
+export default function userReducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
@@ -32,6 +34,17 @@ export default function authReducer(state = initialState, action) {
         token: payload.token,
       };
     case LOGIN_ERROR:
+      return {
+        ...state,
+        error: action.error,
+      };
+    case HANDLE_USER_INFO_SUCCESS:
+      return {
+        ...state,
+        firstName: payload.firstName,
+        lastName: payload.lastName,
+      };
+    case HANDLE_USER_INFO_ERROR:
       return {
         ...state,
         error: action.error,
