@@ -59,6 +59,9 @@ export default function LoginPage() {
               required
             />
           </S.InputContainer>
+          {currentUser.error && (
+            <S.ErrorMessage>{currentUser.error}</S.ErrorMessage>
+          )}
           <S.CheckboxContainer>
             <input id="rememberMe" name="remember" type="checkbox" />
             <label htmlFor="rememberMe">Remember me</label>

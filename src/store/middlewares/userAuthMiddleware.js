@@ -22,7 +22,7 @@ export const userAuth = (email, password) => {
       });
       dispatch(loginSuccess(email, password, response.data.body.token));
     } catch (error) {
-      dispatch(loginError(error));
+      dispatch(loginError(error.response.data.message));
     }
   };
 };
