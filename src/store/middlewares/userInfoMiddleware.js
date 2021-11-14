@@ -25,7 +25,7 @@ export const getUserInfo = (token) => {
         )
       );
     } catch (error) {
-      dispatch(handleUserInfoError(error));
+      dispatch(handleUserInfoError(error.response.data.message));
     }
   };
 };

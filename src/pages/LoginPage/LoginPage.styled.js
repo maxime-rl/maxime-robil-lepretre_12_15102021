@@ -70,3 +70,8 @@ export const BtnSubmit = styled.button`
     background-color: ${styleColor.colorPrimaryDarken};
   }
 `;
+
+export const ErrorMessage = styled.p`
+  font-size: 1rem;
+  color: red;
+`;
