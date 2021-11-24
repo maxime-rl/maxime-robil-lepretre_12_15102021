@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Argent Bank
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<<<<<<< HEAD
+**_Projet n°13_** de la formation OpenClassrooms "Développeur Front End"
 
-## Available Scripts
+**_Intitulé_** : Utilisez une API pour un compte utilisateur bancaire avec React
 
-In the project directory, you can run:
+## 0.Prerequisites
 
-### `yarn start`
+- [NodeJS (version 12)](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/)
+- [MongoDB Community Server](https://www.mongodb.com/try/download/community)
+=======
+***Projet n°13*** de la formation OpenClassrooms "Développeur Front End"
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+***Intitulé*** : Utilisez une API pour un compte utilisateur bancaire avec React
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 0.Prerequisites
+- [NodeJS (version 12)](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/)
+- [MongoDB Community Server](https://www.mongodb.com/try/download/community)
 
-### `yarn test`
+>>>>>>> development
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 1.Backend
 
-### `yarn build`
+#### Launching the project
+<<<<<<< HEAD
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Fork the repository -> [backend](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API)
+- Clone it on your computer
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Getting started & usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`install: yarn`<br>
+`Start local dev server: yarn run dev:server`<br>
+`Populate database with two users: yarn run populate-db`
 
-### `yarn eject`
+Server at http://localhost:3001, with two users in the MongoDB database<br>
+More details on the backend repository...
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 2.Frontend
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project was bootstrapped with [Create React App](https://create-react-app.dev/).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Main features
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [React-router-dom](https://reactrouter.com/web/guides/quick-start)
+- [Redux](https://redux.js.org/)
+- [React-redux](https://react-redux.js.org/)
+- [Axios](https://axios-http.com/docs/example)
+- [Prop-types](https://fr.reactjs.org/docs/typechecking-with-proptypes.html)
+- [Styled-components](https://styled-components.com/docs)
 
-## Learn More
+#### Launching the project
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Fork this repository -> [frontend](https://github.com/maxime-rl/maxime-robil-lepretre_13_15102021)
+- Clone it on your computer
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Getting started & usage
 
-### Code Splitting
+=======
+- Fork the repository -> [backend](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API)
+- Clone it on your computer
+#### Getting started & usage
+`install: yarn`<br>
+`Start local dev server: yarn run dev:server`<br>
+`Populate database with two users: yarn run populate-db`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Server at http://localhost:3001, with two users in the MongoDB database<br>
+More details on the backend repository...
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 2.Frontend
+This project was bootstrapped with [Create React App](https://create-react-app.dev/).
 
-### Making a Progressive Web App
+#### Main features
+- [React-router-dom](https://reactrouter.com/web/guides/quick-start)
+- [Redux](https://redux.js.org/)
+- [React-redux](https://react-redux.js.org/)
+- [Axios](https://axios-http.com/docs/example)
+- [Prop-types](https://fr.reactjs.org/docs/typechecking-with-proptypes.html)
+- [Styled-components](https://styled-components.com/docs)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Launching the project
+- Fork this repository -> [frontend](https://github.com/maxime-rl/maxime-robil-lepretre_13_15102021)
+- Clone it on your computer
+#### Getting started & usage
+>>>>>>> development
+`install: yarn`<br>
+`dev: yarn start`<br>
+`build: yarn build`

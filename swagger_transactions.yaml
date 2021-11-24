@@ -1,0 +1,302 @@
+swagger: "2.0"
+info:
+  description: Contains an example of all API endpoints available for transactions
+  version: 1.0.0
+  title: Argent Bank API documentation (transactions)
+  termsOfService: http://swagger.io/terms/
+host: localhost:3001
+basePath: /api/v1
+schemes:
+  - https
+  - http
+paths:
+  /user/transactions:
+    get:
+      tags:
+        - Transactions
+      summary: get transactions
+      description: Get user's transactions
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Successfully retrieved transactions
+          schema:
+            $ref: "#/definitions/ApiResponseTransactions"
+        "400":
+          description: Invalid fields
+          schema:
+            $ref: "#/definitions/Error400"
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: "#/definitions/Error401"
+        "500":
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/Error500"
+        "503":
+          description: Service unavailable
+          schema:
+            $ref: "#/definitions/Error503"
+
+  /user/transactions/transaction:
+    get:
+      tags:
+        - Transactions
+      security:
+        - Bearer: []
+      summary: get a transaction
+      description: Get the details of a user transaction
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          type: string
+          required: true
+        - in: body
+          name: body
+          description: id of the transaction
+          required: true
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                description: id of the transaction
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Transaction successfully retrived
+          schema:
+            $ref: "#/definitions/ApiResponseTransactionDetails"
+        "400":
+          description: Invalid values
+          schema:
+            $ref: "#/definitions/Error400"
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: "#/definitions/Error401"
+        "500":
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/Error500"
+        "503":
+          description: Service unavailable
+          schema:
+            $ref: "#/definitions/Error503"
+
+    put:
+      tags:
+        - Transactions
+      security:
+        - Bearer: []
+      summary: update a transaction
+      description: Edit the details of a user transaction
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          type: string
+          required: true
+        - in: body
+          name: body
+          description: Informations to update transaction
+          required: true
+          schema:
+            $ref: "#/definitions/EditTransactionDetails"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Transaction successfully retrived
+          schema:
+            $ref: "#/definitions/ApiResponseEditabledTransactionDetails"
+        "400":
+          description: Invalid values
+          schema:
+            $ref: "#/definitions/Error400"
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: "#/definitions/Error401"
+        "500":
+          description: Internal server error
+          schema:
+            $ref: "#/definitions/Error500"
+        "503":
+          description: Service unavailable
+          schema:
+            $ref: "#/definitions/Error503"
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+
+definitions:
+  ApiResponseTransactions:
+    type: object
+    properties:
+      status:
+        type: integer
+        format: int64
+        example: 200
+      message:
+        type: string
+        format: string
+        example: Successfully retrieved transactions
+      body:
+        type: array
+        items:
+          $ref: "#/definitions/TransactionsInformations"
+
+  ApiResponseTransactionDetails:
+    type: object
+    properties:
+      status:
+        type: integer
+        format: int64
+        example: 200
+      message:
+        type: string
+        format: string
+        example: details successfully recovered
+      body:
+        $ref: "#/definitions/TransactionDetails"
+
+  ApiResponseEditabledTransactionDetails:
+    type: object
+    properties:
+      status:
+        type: integer
+        format: int64
+        example: 200
+      message:
+        type: string
+        format: string
+        example: details editable successfully
+      body:
+        $ref: "#/definitions/TransactionDetails"
+
+  TransactionsInformations:
+    type: object
+    properties:
+      id:
+        type: string
+        description: id of transaction
+        example: 5f8r9dd6xo3x5s8ert7
+      date:
+        type: string
+        format: date-time
+        description: date of the transaction
+        example: "2017-07-21T17:32:28Z"
+      description:
+        type: string
+        description: description of the transaction
+        example: Golden Sun Bakery
+      amount:
+        type: number
+        format: float
+        description: amount of the transaction
+        example: 5.5
+      balance:
+        type: number
+        format: float
+        description: balance of the transaction
+        example: 2082.79
+
+  TransactionDetails:
+    type: object
+    properties:
+      id:
+        type: string
+        description: id of transaction
+        example: 5f8r9dd6xo3x5s8ert7
+      type:
+        type: string
+        description: type of transaction
+        example: Electronic
+      category:
+        type: string
+        description: category of transaction
+        example: Food
+      notes:
+        type: string
+        description: notes of transaction
+        example: Lorem Ipsum is simply dummy text of the printing.
+
+  EditTransactionDetails:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: string
+        description: id of transaction
+        example: 5f8r9dd6xo3x5s8ert7
+      category:
+        type: string
+        description: category of transaction
+        example: food
+      notes:
+        type: string
+        description: notes of transaction
+        example: Lorem Ipsum is simply dummy text of the printing.
+
+  Error400:
+    type: object
+    properties:
+      status:
+        type: integer
+        format: int64
+        example: 400
+      message:
+        type: string
+        format: string
+        example: Invalid Fields
+
+  Error401:
+    type: object
+    properties:
+      status:
+        type: integer
+        format: int64
+        example: 401
+      message:
+        type: string
+        format: string
+        example: Unauthorized
+
+  Error500:
+    type: object
+    properties:
+      status:
+        type: integer
+        format: int64
+        example: 500
+      message:
+        type: string
+        format: string
+        example: Internal Server Error
+
+  Error503:
+    type: object
+    properties:
+      status:
+        type: integer
+        format: int64
+        example: 503
+      message:
+        type: string
+        format: string
+        example: Service Unavailable
