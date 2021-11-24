@@ -21,7 +21,7 @@
 `Populate database with two users: yarn run populate-db`
 
 Server at http://localhost:3001, with two users in the MongoDB database<br>
-More details on the backend repository
+More details on the backend repository...
 
 
 ## 2.Frontend
