@@ -18,8 +18,8 @@
 #### Getting started & usage
 `install: yarn`<br>
 `Start local dev server: yarn run dev:server`<br>
-`Populate database with two users: yarn run populate-db`
-Server at http: // locahost: 3001, with two users in the MongoDB database
+`Populate database with two users: yarn run populate-db`<br>
+Server at http: // locahost: 3001, with two users in the MongoDB database<br>
 More details on the backend repository
 
 
