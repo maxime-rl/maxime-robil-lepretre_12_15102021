@@ -19,9 +19,16 @@
 
 #### Getting started & usage
 
-`install: yarn`<br>
-`Start local dev server: yarn run dev:server`<br>
-`Populate database with two users: yarn run populate-db`
+```
+# Install dependencies
+yarn install
+
+# Start local dev server
+yarn run dev:server
+
+# Populate database with two users
+yarn run populate-db
+```
 
 Server at http://localhost:3001, with two users in the MongoDB database<br>
 More details on the backend repository...
@@ -46,6 +53,13 @@ This project was bootstrapped with [Create React App](https://create-react-app.d
 
 #### Getting started & usage
 
-`install: yarn`<br>
-`dev: yarn start`<br>
-`build: yarn build`
+```
+# Install dependencies
+yarn install
+
+# Start local dev server
+yarn start
+
+# build
+yarn build
+```
