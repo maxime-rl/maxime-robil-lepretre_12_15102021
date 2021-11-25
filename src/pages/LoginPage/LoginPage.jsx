@@ -59,7 +59,8 @@ export default function LoginPage() {
               required
             />
           </S.InputContainer>
-          {currentUser.error && (
+          {(currentUser.error === "Error: User not found!" ||
+            currentUser.error === "Error: Password is invalid") && (
             <S.ErrorMessage>{currentUser.error}</S.ErrorMessage>
           )}
           <S.CheckboxContainer>
