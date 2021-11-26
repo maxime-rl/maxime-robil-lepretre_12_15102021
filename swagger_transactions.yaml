@@ -14,7 +14,7 @@ paths:
     get:
       tags:
         - Transactions
-      summary: get transactions
+      summary: read transactions
       description: Get user's transactions
       parameters:
         - in: header
@@ -22,6 +22,12 @@ paths:
           description: Attach Bearer JWT token
           type: string
           required: true
+        - in: body
+          name: Dates
+          description: Date range of transactions
+          required: true
+          schema:
+            $ref: "#/definitions/TransactionsDates"
       produces:
         - application/json
       responses:
@@ -45,14 +51,13 @@ paths:
           description: Service unavailable
           schema:
             $ref: "#/definitions/Error503"
-
   /user/transactions/transaction:
     get:
       tags:
         - Transactions
       security:
         - Bearer: []
-      summary: get a transaction
+      summary: read a transaction
       description: Get the details of a user transaction
       parameters:
         - in: header
@@ -93,7 +98,6 @@ paths:
           description: Service unavailable
           schema:
             $ref: "#/definitions/Error503"
-
     put:
       tags:
         - Transactions
@@ -136,13 +140,11 @@ paths:
           description: Service unavailable
           schema:
             $ref: "#/definitions/Error503"
-
 securityDefinitions:
   Bearer:
     type: apiKey
     name: Authorization
     in: header
-
 definitions:
   ApiResponseTransactions:
     type: object
@@ -159,7 +161,6 @@ definitions:
         type: array
         items:
           $ref: "#/definitions/TransactionsInformations"
-
   ApiResponseTransactionDetails:
     type: object
     properties:
@@ -173,7 +174,6 @@ definitions:
         example: details successfully recovered
       body:
         $ref: "#/definitions/TransactionDetails"
-
   ApiResponseEditabledTransactionDetails:
     type: object
     properties:
@@ -187,7 +187,19 @@ definitions:
         example: details editable successfully
       body:
         $ref: "#/definitions/TransactionDetails"
-
+  TransactionsDates:
+    type: object
+    properties:
+      from:
+        type: string
+        format: date
+        description: Start of date range
+        example: "2017-07-01"
+      to:
+        type: string
+        format: date
+        description: Start of date range
+        example: "2017-07-31"
   TransactionsInformations:
     type: object
     properties:
@@ -214,7 +226,6 @@ definitions:
         format: float
         description: balance of the transaction
         example: 2082.79
-
   TransactionDetails:
     type: object
     properties:
@@ -234,7 +245,6 @@ definitions:
         type: string
         description: notes of transaction
         example: Lorem Ipsum is simply dummy text of the printing.
-
   EditTransactionDetails:
     type: object
     required:
@@ -252,7 +262,6 @@ definitions:
         type: string
         description: notes of transaction
         example: Lorem Ipsum is simply dummy text of the printing.
-
   Error400:
     type: object
     properties:
@@ -264,7 +273,6 @@ definitions:
         type: string
         format: string
         example: Invalid Fields
-
   Error401:
     type: object
     properties:
@@ -276,7 +284,6 @@ definitions:
         type: string
         format: string
         example: Unauthorized
-
   Error500:
     type: object
     properties:
@@ -288,7 +295,6 @@ definitions:
         type: string
         format: string
         example: Internal Server Error
-
   Error503:
     type: object
     properties:
