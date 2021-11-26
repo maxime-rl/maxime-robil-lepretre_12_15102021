@@ -63,3 +63,5 @@ yarn start
 # build
 yarn build
 ```
+
+Local dev server at http://localhost:3000
